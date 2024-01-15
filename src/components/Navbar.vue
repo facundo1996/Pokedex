@@ -23,4 +23,7 @@ export default {
 nav{
   background-color: #ef5450;
 }
+.navbar{
+  border-bottom: 2px solid black;
+}
 </style>

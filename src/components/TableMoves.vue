@@ -3,7 +3,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"><img height="40px" :src="gif" alt=""></th>
           <th scope="col">Moves</th>
         </tr>
       </thead>
@@ -25,13 +25,18 @@ export default {
 
     }
   },
-  props: ['moves'],
+  props: ['moves', 'gif'],
 }
 </script>
 <style scoped>
 .moves-container{
-  height: 500px;
+  max-height: 500px;
   overflow-y: scroll;
   margin-top: 30px;
+  border: 2px solid black;
+  border-radius: 13px;
+}
+.moves-container::-webkit-scrollbar{
+  display: none;
 }
 </style>

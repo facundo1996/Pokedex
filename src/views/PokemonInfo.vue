@@ -2,7 +2,7 @@
   <div class="container">
 
 
-    <div class="table-container mt-4">
+    <div class="table-container p-4 mt-4">
       <div class="row">
         <div class="col-3 d-flex flex-column justify-content-center align-items-center">
           <h4>{{ pokemon.name }} #{{ pokemon.id }}</h4>
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <TableMoves :moves="moves" />
+    <TableMoves :moves="moves" :gif="gif"  />
   </div>
 </template>
 
@@ -32,7 +32,8 @@ export default {
       pokemonId: '',
       types: '',
       spanishDescription: '',
-      moves: []
+      moves: [],
+      gif: ''
     }
   },
   components:{
@@ -45,9 +46,9 @@ export default {
         this.pokemon = res.data
         this.types = this.pokemon.types.map(type => type.type.name).join(',')
         this.moves = res.data.moves
+        this.gif = res.data.sprites.other.showdown.front_default
       })
       .catch(err => {
-        console.log("ERROR")
         console.log(err)
       })
     pokemons.getPokemon(`https://pokeapi.co/api/v2/pokemon-species/` + this.pokemonId)
