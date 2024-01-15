@@ -4,16 +4,16 @@
 
     <div class="table-container p-4 mt-4">
       <div class="row">
-        <div class="col-3 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
           <h4>{{ pokemon.name }} #{{ pokemon.id }}</h4>
-          <img style="width: 150px;"
+          <img style="width: 200px;"
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/` + pokemon.id + `.png`"
             alt="">
         </div>
-        <div class="col-6 d-flex flex-column justify-content-around align-items-start">
-          <div><b>Type:</b> {{ types }} </div>
-          <div><b>Weight:</b> {{ pokemon.weight }}</div>
-          <div><b>Description:</b> {{ spanishDescription.flavor_text }}</div>
+        <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-start">
+          <div class="mt-3 mt-md-0"><b>Type:</b> {{ types }} </div>
+          <div class="mt-3 mt-md-0"><b>Weight:</b> {{ pokemon.weight }}</div>
+          <div class="mt-3 mt-md-0"><b>Description:</b> {{ spanishDescription.flavor_text }}</div>
         </div>
       </div>
     </div>
