@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="navbar">
-      <div class="container-fluid d-flex justify-content-center align-items-center title-navbar">
+      <div v-on:click="goPage" class="container-fluid d-flex justify-content-center align-items-center title-navbar">
         <img src="../../public/pokedex-logo.png" alt="">
       </div>
     </nav>
@@ -9,21 +9,34 @@
 </template>
 
 <script lang="ts">
+import router from '@/router';
+router
 export default {
   name: "Navbar",
+  methods: {
+    goPage(){
+      router.push({ path: '/' })
+    }
+  }
 }
 </script>
 
 <style scoped>
-.title-navbar{
+.title-navbar {
   -webkit-text-stroke: 10px #2a75bb;
   color: #ffcb05;
   font-size: 100px;
+  cursor: pointer;
 }
-nav{
+
+nav {
   background-color: #ef5450;
 }
-.navbar{
+
+.navbar {
   border-bottom: 2px solid black;
 }
-</style>
+
+.link {
+  width: min-content;
+}</style>

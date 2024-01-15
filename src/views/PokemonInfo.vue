@@ -1,9 +1,15 @@
 <template>
   <div class="container">
+
     <div class="h1 text-center mt-5" v-if="error">
       {{ error }}
     </div>
-    <div v-if="!error" class="table-container p-4 mt-4">
+    <div v-if="loading && !error" class="mt-5 d-flex justify-content-center align-items-center flex-column">
+      <div class="ball"></div>
+      <h4 class="mt-4">Loading...</h4>
+    </div>
+
+    <div v-if="!loading && !error" class="table-container p-4 mt-4">
       <div class="row">
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
           <h4>{{ pokemon.name }} #{{ pokemon.id }}</h4>
@@ -11,14 +17,31 @@
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/` + pokemon.id + `.png`"
             alt="">
         </div>
+
         <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-start">
-          <div class="mt-3 mt-md-0"><b>Type:</b> {{ types }} </div>
-          <div class="mt-3 mt-md-0"><b>Weight:</b> {{ pokemon.weight }}</div>
-          <div class="mt-3 mt-md-0"><b>Description:</b> {{ spanishDescription.flavor_text }}</div>
+          <div class="mt-3 mt-md-0">
+            <b>Type:</b>
+            <span>
+              {{ types }}
+            </span>
+          </div>
+          <div class="mt-3 mt-md-0">
+            <b>Weight:</b>
+            <span>
+              {{ pokemon.weight }}
+            </span>
+          </div>
+          <div class="mt-3 mt-md-0">
+            <b>Description:</b>
+            <span>
+              {{ spanishDescription.flavor_text }}
+            </span>
+          </div>
         </div>
+
       </div>
     </div>
-    <TableMoves v-if="!error" :moves="moves" :gif="gif"  />
+    <TableMoves v-if="!loading && !error" :moves="moves" :gif="gif" />
   </div>
 </template>
 
@@ -35,10 +58,11 @@ export default {
       spanishDescription: '',
       moves: [],
       gif: '',
-      error: ''
+      error: '',
+      loading: true
     }
   },
-  components:{
+  components: {
     TableMoves
   },
   created() {
@@ -49,6 +73,7 @@ export default {
         this.types = this.pokemon.types.map(type => type.type.name).join(',')
         this.moves = res.data.moves
         this.gif = res.data.sprites.other.showdown.front_default
+        this.loading = false
       })
       .catch(err => {
         this.error = err
@@ -73,5 +98,9 @@ h4::first-letter {
 
 h4 {
   font-weight: bold;
+}
+span{
+  font-weight: 500;
+  margin-left: 10px;
 }
 </style>
