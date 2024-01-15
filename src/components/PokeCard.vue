@@ -11,7 +11,7 @@
           <h4>
             {{ pokemon.name }}
           </h4>
-          <div class="d-flex justify-content-center align-items-center h5">
+          <div class="d-flex justify-content-center align-items-center h5 text-dark">
             <img height="20" class="me-1" src="../../public/peso.png" alt="">{{ pokemon.weight }}
           </div>
         </div>
@@ -24,7 +24,6 @@
     </div>
   </router-link>
 </template>
-
 
 <script lang="ts">
 import pokemons from '../store/pokemons'
