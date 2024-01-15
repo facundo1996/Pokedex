@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-
-
-    <div class="table-container p-4 mt-4">
+    <div class="h1 text-center mt-5" v-if="error">
+      {{ error }}
+    </div>
+    <div v-if="!error" class="table-container p-4 mt-4">
       <div class="row">
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
           <h4>{{ pokemon.name }} #{{ pokemon.id }}</h4>
@@ -17,7 +18,7 @@
         </div>
       </div>
     </div>
-    <TableMoves :moves="moves" :gif="gif"  />
+    <TableMoves v-if="!error" :moves="moves" :gif="gif"  />
   </div>
 </template>
 
@@ -33,7 +34,8 @@ export default {
       types: '',
       spanishDescription: '',
       moves: [],
-      gif: ''
+      gif: '',
+      error: ''
     }
   },
   components:{
@@ -49,7 +51,7 @@ export default {
         this.gif = res.data.sprites.other.showdown.front_default
       })
       .catch(err => {
-        console.log(err)
+        this.error = err
       })
     pokemons.getPokemon(`https://pokeapi.co/api/v2/pokemon-species/` + this.pokemonId)
       .then(res => {

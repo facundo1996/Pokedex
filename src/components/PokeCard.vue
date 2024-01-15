@@ -40,18 +40,11 @@ export default {
       .then(res => {
         this.pokemon = res.data
       })
-      .catch(err => {
-        console.log("ERROR")
-        console.log(err)
-      })
   }
 }
 </script>
 
 <style scoped>
-.test{
-  text-decoration: none;
-}
 .poke-card-container {
   display: flex;
   justify-content: center;
