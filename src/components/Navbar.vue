@@ -14,7 +14,7 @@ router
 export default {
   name: "Navbar",
   methods: {
-    goPage(){
+    goPage() {
       router.push({ path: '/' })
     }
   }
@@ -23,14 +23,14 @@ export default {
 
 <style scoped>
 .title-navbar {
-  -webkit-text-stroke: 10px #2a75bb;
-  color: #ffcb05;
+  -webkit-text-stroke: 10px var(--blue);
+  color: var(--yellow);
   font-size: 100px;
   cursor: pointer;
 }
 
 nav {
-  background-color: #ef5450;
+  background-color: var(--red);
 }
 
 .navbar {
@@ -39,4 +39,5 @@ nav {
 
 .link {
   width: min-content;
-}</style>
+}
+</style>

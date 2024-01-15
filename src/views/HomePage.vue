@@ -3,8 +3,9 @@
     <div v-if="!loading && !error" class="pokemon-container mt-3 justify-content-center">
       <PokeCard v-for="(pokemon, index) in allPokemons" :key="index" :pokemonURL='pokemon.url' />
     </div>
-    <div v-if="!loading && !error" class="d-flex justify-content-center my-5">
+    <div v-if="!loading && !error" class="d-flex justify-content-center align-items-center flex-column my-5">
       <img class="pokeball-logo" src="../../public/pokeball-open.png" v-if="morePages" v-on:click="nextPage">
+      <h4 class="h4 mt-3">More pokemons</h4>
     </div>
     <div v-if="loading && !error" class="mt-5 d-flex justify-content-center align-items-center flex-column">
       <div class="ball"></div>

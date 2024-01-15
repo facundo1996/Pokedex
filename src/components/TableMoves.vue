@@ -29,14 +29,15 @@ export default {
 }
 </script>
 <style scoped>
-.moves-container{
+.moves-container {
   max-height: 500px;
   overflow-y: scroll;
   margin-top: 30px;
   border: 2px solid black;
   border-radius: 13px;
 }
-.moves-container::-webkit-scrollbar{
+
+.moves-container::-webkit-scrollbar {
   display: none;
 }
 </style>

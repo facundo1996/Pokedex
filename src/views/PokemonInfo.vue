@@ -12,13 +12,13 @@
     <div v-if="!loading && !error" class="table-container p-4 mt-4">
       <div class="row">
         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
-          <h4>{{ pokemon.name }} #{{ pokemon.id }}</h4>
+          <h4 class="pokemon-name">{{ pokemon.name }} #{{ pokemon.id }}</h4>
           <img style="width: 200px;"
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/` + pokemon.id + `.png`"
             alt="">
         </div>
 
-        <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-start">
+        <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-start info-pokemon">
           <div class="mt-3 mt-md-0">
             <b>Type:</b>
             <span>
@@ -99,8 +99,16 @@ h4::first-letter {
 h4 {
   font-weight: bold;
 }
-span{
+
+span {
   font-weight: 500;
   margin-left: 10px;
 }
-</style>
+
+.info-pokemon {
+  font-size: 22px;
+}
+
+.pokemon-name {
+  font-size: 26px;
+}</style>

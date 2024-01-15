@@ -1,5 +1,5 @@
 <template>
-  <router-link class="text-decoration-none" :to="'/'+pokemon?.id">
+  <router-link class="text-decoration-none" :to="'/' + pokemon?.id">
 
     <div class="poke-card-container bg-light rounded">
       <div class="w-100 d-flex justify-content-center align-items-center bg-light bg-pokeball">
@@ -64,6 +64,7 @@ export default {
   background-color: #fcfcfc;
   box-shadow: 1px 1px 7px -2px #000;
 }
+
 .bg-pokeball {
   background-image: url('../../public/pokeball.png');
   background-size: contain;
@@ -73,18 +74,19 @@ export default {
 
 h4 {
   font-size: 22px;
-  color: black  ;
+  color: black;
 }
 
 h4::first-letter {
   text-transform: uppercase;
 }
-.type-container{
-  background-color: #524a4a;
+
+.type-container {
+  background-color: var(--type);
   color: white;
   font-weight: bold;
 }
+
 .type-container::first-letter {
   text-transform: uppercase;
-}
-</style>
+}</style>

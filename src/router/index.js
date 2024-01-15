@@ -15,7 +15,7 @@ const router = createRouter({
       name: 'pokemon-info',
       component: PokemonInfo
     },
-    
+
   ]
 })
 
